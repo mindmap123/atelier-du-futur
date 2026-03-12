@@ -1,4 +1,4 @@
-import { ArrowRight, Check, Zap, AlertCircle } from 'lucide-react';
+import { ArrowRight, Check, AlertCircle } from 'lucide-react';
 
 const included = [
   'Formation complète 40h+',
