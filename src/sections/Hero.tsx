@@ -1,9 +1,9 @@
 import { ArrowRight } from 'lucide-react';
 
 const formateurs = [
-  { img: '/formateur1.jpg', name: 'Le Bâtisseur' },
-  { img: '/formateur2.jpg', name: 'Le Stratège' },
-  { img: '/formateur3.jpg', name: 'Le Closer' },
+  { img: '/formateur1.jpg', name: 'Enzo', subtitle: 'Le Bâtisseur' },
+  { img: '/formateur2.jpg', name: 'Antho', subtitle: 'Le Stratège' },
+  { img: '/formateur3.jpg', name: 'Waxx', subtitle: 'Le Closer' },
 ];
 
 export default function Hero() {
@@ -35,7 +35,8 @@ export default function Hero() {
                 />
               </div>
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#252422] to-transparent p-4">
-                <p className="text-[#eb5e28] font-bold text-sm uppercase tracking-wider">{formateur.name}</p>
+                <p className="text-[#eb5e28] font-bold text-base uppercase tracking-wider">{formateur.name}</p>
+                <p className="text-[#ccc5b9] text-xs uppercase tracking-widest mt-1">{formateur.subtitle}</p>
               </div>
             </div>
           ))}
@@ -53,6 +54,26 @@ export default function Hero() {
         </a>
         
         <p className="text-[#ccc5b9] text-sm mt-4">1500€ - Formation + Site + Google My Business + Logo</p>
+        
+        <p className="text-[#d8d0c4] text-sm mt-5">
+          <strong className="text-[#ef4444]">30 premières places</strong> au prix de lancement
+        </p>
+
+        {/* Stats */}
+        <div className="flex justify-center gap-10 md:gap-16 mt-16 flex-wrap">
+          <div className="text-center">
+            <span className="text-4xl font-black text-[#eb5e28] block">7</span>
+            <span className="text-[#cfc5b5] text-xs uppercase tracking-wider">Modules</span>
+          </div>
+          <div className="text-center">
+            <span className="text-4xl font-black text-[#eb5e28] block">40h+</span>
+            <span className="text-[#cfc5b5] text-xs uppercase tracking-wider">Formation</span>
+          </div>
+          <div className="text-center">
+            <span className="text-4xl font-black text-[#eb5e28] block">∞</span>
+            <span className="text-[#cfc5b5] text-xs uppercase tracking-wider">Accès à vie</span>
+          </div>
+        </div>
       </div>
     </section>
   );
