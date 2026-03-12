@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formation Bâtiment : Deviens Patron</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange: #E86A2A;
+      --orange-dark: #C95520;
+      --dark: #1a1713;
+      --dark2: #252118;
+      --mid: #3a3530;
+      --light: #F9FAFB;
+      --white: #ffffff;
+      --red: #EF4444;
+      --green: #10B981;
+      --text: #374151;
+      --muted: #6B7280;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    .container { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+    .text-center { text-align: center; }
+
+    /* ── STICKY BAR ── */
+    .sticky-bar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: #0e0c09;
+      padding: 10px 20px;
+      display: flex; align-items: center; justify-content: center; gap: 16px;
+      flex-wrap: wrap;
+    }
+    .sticky-bar span { color: var(--white); font-size: 14px; font-weight: 600; }
+    .sticky-bar .badge {
+      background: var(--red);
+      color: white; font-size: 12px; font-weight: 700;
+      padding: 3px 10px; border-radius: 20px;
+      animation: pulse 2s infinite;
+    }
+    .sticky-bar a {
+      background: var(--orange);
+      color: var(--dark); font-weight: 800; font-size: 13px;
+      padding: 7px 18px; border-radius: 6px;
+      text-decoration: none; white-space: nowrap;
+      transition: background 0.2s;
+    }
+    .sticky-bar a:hover { background: var(--orange-dark); }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--dark);
+      padding: 110px 20px 80px;
+      text-align: center;
+    }
+    .hero-brand {
+      font-size: clamp(48px, 10vw, 100px);
+      font-weight: 900; line-height: 1;
+      color: var(--white);
+      letter-spacing: -1px;
+      margin-bottom: 18px;
+      text-transform: uppercase;
+    }
+    .hero-brand em { font-style: normal; color: var(--orange); }
+    .hero-tagline {
+      font-size: clamp(15px, 2.5vw, 20px);
+      color: #cfc5b5; max-width: 600px;
+      margin: 0 auto 52px; line-height: 1.6;
+    }
+
+    /* Character cards */
+    .hero-cards {
+      display: flex; justify-content: center; gap: 20px;
+      margin: 0 auto 52px; max-width: 820px;
+      flex-wrap: wrap;
+    }
+    .hero-card {
+      width: 240px; aspect-ratio: 3/4;
+      border-radius: 10px; overflow: hidden;
+      position: relative;
+      border: 1px solid rgba(232,106,42,0.3);
+      flex-shrink: 0;
+    }
+    .hero-card img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+    }
+    .hero-card-placeholder {
+      width: 100%; height: 100%;
+      background: linear-gradient(160deg, #3a2a1a 0%, #1a0f05 40%, #2d1a08 70%, #5a3010 100%);
+      display: flex; align-items: flex-end; justify-content: center;
+      padding-bottom: 0;
+    }
+    .hero-card-overlay {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, transparent 60%);
+      padding: 20px 14px 16px;
+    }
+    .hero-card-role {
+      font-size: 15px; font-weight: 900;
+      color: var(--orange); text-transform: uppercase;
+      letter-spacing: 1px; line-height: 1.1;
+    }
+    .hero-card-sub {
+      font-size: 11px; font-weight: 700;
+      color: rgba(255,255,255,0.6); text-transform: uppercase;
+      letter-spacing: 2px; margin-top: 2px;
+    }
+    /* Fire ember glow effect for placeholder cards */
+    .hero-card-placeholder::before {
+      content: '';
+      position: absolute;
+      bottom: 30%; left: 50%; transform: translateX(-50%);
+      width: 80px; height: 120px;
+      background: radial-gradient(ellipse, rgba(232,106,42,0.4) 0%, transparent 70%);
+      filter: blur(20px);
+    }
+
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--orange);
+      color: var(--white);
+      font-size: 16px; font-weight: 900; letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 18px 40px; border-radius: 6px;
+      text-decoration: none;
+      transition: transform 0.2s, background 0.2s;
+      box-shadow: 0 8px 30px rgba(232,106,42,0.4);
+    }
+    .cta-btn:hover { background: var(--orange-dark); transform: translateY(-2px); }
+    .cta-btn .arr { font-size: 18px; }
+
+    .hero-price-note {
+      margin-top: 18px;
+      color: #cfc5b5; font-size: 14px; letter-spacing: 0.5px;
+    }
+
+    .hero-scarcity {
+      margin-top: 20px;
+      color: #d8d0c4; font-size: 14px;
+    }
+    .hero-scarcity strong { color: var(--red); }
+
+    .hero-stats {
+      display: flex; justify-content: center; gap: 40px;
+      margin-top: 60px; flex-wrap: wrap;
+    }
+    .hero-stat { text-align: center; }
+    .hero-stat .num {
+      font-size: 36px; font-weight: 900; color: var(--orange); display: block;
+    }
+    .hero-stat .label { color: #cfc5b5; font-size: 13px; }
+
+    /* ── VIDEO SECTION ── */
+    .video-section {
+      background: var(--light);
+      padding: 80px 20px;
+      border-top: 1px solid #E5E7EB;
+      text-align: center;
+    }
+    .video-title {
+      font-size: clamp(32px, 6vw, 64px);
+      font-weight: 900; text-transform: uppercase;
+      color: var(--dark); margin-bottom: 12px; letter-spacing: -1px;
+    }
+    .video-title em { font-style: normal; color: var(--orange); }
+    .video-sub {
+      color: var(--muted); font-size: 16px; margin-bottom: 40px;
+    }
+    .video-wrapper {
+      max-width: 820px; margin: 0 auto;
+      aspect-ratio: 16/9;
+      background: #1a1713;
+      border-radius: 8px; overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.07);
+      position: relative; cursor: pointer;
+    }
+    .video-wrapper iframe {
+      width: 100%; height: 100%; border: none; display: block;
+    }
+    .video-placeholder {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 16px;
+    }
+    .video-play-btn {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: var(--orange);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px; color: white;
+      box-shadow: 0 0 40px rgba(232,106,42,0.5);
+      transition: transform 0.2s;
+    }
+    .video-wrapper:hover .video-play-btn { transform: scale(1.1); }
+    .video-placeholder p { color: #a09880; font-size: 14px; }
+
+    /* ── SECTION COMMONS ── */
+    .section-tag {
+      display: inline-block;
+      font-size: 12px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--orange);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(24px, 4vw, 38px);
+      font-weight: 900; line-height: 1.2;
+      margin-bottom: 16px; color: var(--dark);
+    }
+    .section-sub {
+      font-size: 18px; color: var(--muted);
+      margin-bottom: 40px; max-width: 600px;
+    }
+
+    /* ── PROBLEM ── */
+    .problem { background: var(--light); padding: 80px 20px; }
+
+    .pain-list { list-style: none; display: grid; gap: 14px; margin-top: 36px; }
+    .pain-list li {
+      display: flex; align-items: flex-start; gap: 14px;
+      background: var(--white);
+      border: 1px solid #E5E7EB;
+      border-left: 4px solid var(--red);
+      padding: 16px 20px; border-radius: 8px;
+      font-size: 16px; color: var(--dark2);
+    }
+    .pain-list li::before {
+      content: "✗";
+      color: var(--red); font-weight: 900; font-size: 18px;
+      flex-shrink: 0; margin-top: 1px;
+    }
+
+    .problem-close {
+      margin-top: 40px;
+      background: var(--dark);
+      color: var(--white);
+      padding: 24px 32px; border-radius: 12px;
+      font-size: 18px; font-weight: 700;
+      text-align: center; line-height: 1.5;
+    }
+    .problem-close span { color: var(--orange); }
+
+    /* ── OFFER ── */
+    .offer { background: var(--white); padding: 80px 20px; text-align: center; }
+
+    .package-box {
+      background: var(--white);
+      border: 2px solid var(--orange);
+      border-radius: 16px; overflow: hidden;
+      max-width: 680px; margin: 0 auto;
+      box-shadow: 0 4px 30px rgba(232,106,42,0.12);
+    }
+    .package-header {
+      background: var(--orange);
+      padding: 20px;
+      font-size: 18px; font-weight: 900; color: var(--white);
+      text-transform: uppercase; letter-spacing: 1px;
+    }
+    .package-item {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 14px 28px;
+      border-bottom: 1px solid #F3F4F6;
+      gap: 16px;
+    }
+    .package-item:last-child { border-bottom: none; }
+    .package-item .item-name {
+      color: var(--dark); font-size: 15px; text-align: left;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .package-item .item-name .icon { font-size: 20px; flex-shrink: 0; }
+    .package-item .item-value {
+      color: var(--muted); font-size: 14px;
+      text-decoration: line-through; white-space: nowrap;
+    }
+    .package-total {
+      background: rgba(232,106,42,0.06);
+      padding: 20px 28px;
+      border-top: 2px solid var(--orange);
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 10px;
+    }
+    .package-total .label { color: var(--muted); font-size: 14px; }
+    .package-total .value { color: var(--dark); font-size: 28px; font-weight: 900; }
+    .package-total .value del { color: var(--muted); font-size: 18px; margin-right: 10px; }
+    .package-total .value span { color: var(--orange); }
+
+    .clef-en-main {
+      background: rgba(16, 185, 129, 0.06);
+      border: 1px solid var(--green);
+      border-radius: 12px; padding: 24px 28px;
+      color: var(--text); font-size: 16px;
+      max-width: 680px; margin: 40px auto 0;
+      text-align: left; line-height: 1.7;
+    }
+    .clef-en-main strong { color: var(--green); }
+
+    /* ── MODULES ── */
+    .modules { background: var(--white); padding: 80px 20px; }
+    .modules-grid { display: grid; gap: 20px; margin-top: 48px; }
+
+    .module-card {
+      border: 1px solid #E5E7EB;
+      border-radius: 12px; overflow: hidden;
+      transition: box-shadow 0.2s;
+    }
+    .module-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+    .module-header {
+      display: flex; align-items: center; gap: 16px;
+      padding: 20px 24px;
+      background: var(--light);
+      border-bottom: 1px solid #E5E7EB;
+    }
+    .module-num {
+      background: var(--orange);
+      color: var(--dark); font-weight: 900; font-size: 13px;
+      width: 36px; height: 36px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .module-title { font-size: 17px; font-weight: 800; color: var(--dark); }
+    .module-subtitle { font-size: 13px; color: var(--muted); margin-top: 2px; }
+    .module-body { padding: 20px 24px; }
+    .module-desc { color: var(--text); font-size: 15px; line-height: 1.7; margin-bottom: 16px; }
+    .module-items { display: flex; flex-wrap: wrap; gap: 8px; }
+    .module-tag {
+      background: rgba(245,166,35,0.1);
+      color: var(--orange-dark); font-size: 12px; font-weight: 600;
+      padding: 4px 12px; border-radius: 20px;
+      border: 1px solid rgba(245,166,35,0.3);
+    }
+    .module-tag.bonus {
+      background: rgba(16,185,129,0.1);
+      color: var(--green);
+      border-color: rgba(16,185,129,0.3);
+    }
+
+    /* ── SKOOL SECTION ── */
+    .skool-section { background: var(--light); padding: 80px 20px; }
+    .skool-logo {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: rgba(232,106,42,0.08);
+      border: 1px solid rgba(232,106,42,0.2);
+      border-radius: 50px; padding: 8px 20px;
+      margin-bottom: 32px;
+    }
+    .skool-logo .dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--orange);
+    }
+    .skool-logo span { color: var(--orange-dark); font-size: 14px; font-weight: 700; letter-spacing: 1px; }
+    .skool-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 16px; margin-top: 48px;
+    }
+    @media (max-width: 700px) { .skool-grid { grid-template-columns: 1fr; } }
+    .skool-card {
+      background: var(--white);
+      border: 1px solid #E5E7EB;
+      border-radius: 14px; padding: 28px 22px;
+      text-align: left;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .skool-card:hover { border-color: var(--orange); box-shadow: 0 4px 20px rgba(232,106,42,0.1); }
+    .skool-card .sk-icon {
+      font-size: 32px; margin-bottom: 16px; display: block;
+    }
+    .skool-card h3 {
+      font-size: 16px; font-weight: 800; color: var(--dark);
+      margin-bottom: 10px;
+    }
+    .skool-card p {
+      font-size: 14px; color: var(--muted); line-height: 1.65;
+    }
+    .skool-banner {
+      background: var(--dark);
+      border-radius: 14px; padding: 28px 32px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 24px; flex-wrap: wrap; max-width: 760px; margin: 48px auto 0;
+    }
+    .skool-banner p {
+      color: var(--white); font-size: 17px; font-weight: 700; line-height: 1.5;
+      flex: 1; min-width: 220px;
+    }
+    .skool-banner p span { color: var(--orange); }
+    .skool-banner .sk-badge {
+      background: var(--orange);
+      color: var(--white); font-size: 13px; font-weight: 800;
+      padding: 10px 22px; border-radius: 6px;
+      text-transform: uppercase; letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+
+    /* ── FOR WHO ── */
+    .for-who { background: var(--light); padding: 80px 20px; }
+    .for-who-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 24px; margin-top: 48px;
+    }
+    .for-box { border-radius: 12px; padding: 28px; }
+    .for-box.yes { background: rgba(16,185,129,0.07); border: 1.5px solid var(--green); }
+    .for-box.no { background: rgba(239,68,68,0.07); border: 1.5px solid var(--red); }
+    .for-box-title {
+      font-size: 16px; font-weight: 800; margin-bottom: 16px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .for-box.yes .for-box-title { color: var(--green); }
+    .for-box.no .for-box-title { color: var(--red); }
+    .for-box ul { list-style: none; display: grid; gap: 10px; }
+    .for-box ul li {
+      font-size: 15px; color: var(--text);
+      display: flex; align-items: flex-start; gap: 10px;
+    }
+    .for-box.yes ul li::before { content: "✓"; color: var(--green); font-weight: 900; }
+    .for-box.no ul li::before { content: "✗"; color: var(--red); font-weight: 900; }
+
+    /* ── SCARCITY ── */
+    .scarcity { background: var(--dark); padding: 80px 20px; text-align: center; }
+    .scarcity .section-title { color: var(--white); }
+    .scarcity > .container > p { color: #d8d0c4; font-size: 17px; max-width: 560px; margin: 0 auto 40px; }
+
+    .spots-label { color: var(--white); font-size: 14px; margin-bottom: 8px; }
+    .spots-label strong { color: var(--orange); }
+    .spots-bar {
+      max-width: 500px; margin: 0 auto 8px;
+      background: var(--mid); border-radius: 50px; height: 14px; overflow: hidden;
+    }
+    .spots-fill {
+      background: linear-gradient(90deg, var(--orange), var(--orange-dark));
+      height: 100%; width: 57%; border-radius: 50px;
+      animation: fillup 1.5s ease-out;
+    }
+    @keyframes fillup { from { width: 0; } to { width: 57%; } }
+
+    .price-compare {
+      display: flex; justify-content: center; align-items: center;
+      gap: 20px; margin: 40px auto 32px; flex-wrap: wrap;
+    }
+    .price-box { border-radius: 12px; padding: 24px 32px; text-align: center; }
+    .price-box.old { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); }
+    .price-box.new { background: rgba(245,166,35,0.1); border: 2px solid var(--orange); }
+    .price-box .tag { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; color: var(--muted); }
+    .price-box.new .tag { color: var(--orange); }
+    .price-box .amount { font-size: 40px; font-weight: 900; color: var(--muted); text-decoration: line-through; }
+    .price-box.new .amount { color: var(--white); text-decoration: none; }
+    .price-box .note { font-size: 13px; color: var(--muted); margin-top: 6px; }
+    .price-box.new .note { color: #CBD5E1; }
+    .arrow-icon { font-size: 28px; color: var(--orange); }
+
+    /* ── GUARANTEE ── */
+    .guarantee { background: var(--white); padding: 80px 20px; border-top: 1px solid #E5E7EB; }
+    .guarantee-box {
+      border: 2px solid var(--orange);
+      border-radius: 16px; padding: 40px;
+      max-width: 680px; margin: 0 auto;
+      text-align: center;
+      background: rgba(232,106,42,0.04);
+    }
+    .guarantee-icon { font-size: 52px; margin-bottom: 16px; }
+    .guarantee-title { font-size: 26px; font-weight: 900; color: var(--dark); margin-bottom: 16px; }
+    .guarantee-text { color: var(--text); font-size: 16px; line-height: 1.7; }
+    .guarantee-text strong { color: var(--dark); }
+
+    /* ── FAQ ── */
+    .faq { background: var(--light); padding: 80px 20px; }
+    .faq-list { margin-top: 48px; display: grid; gap: 12px; }
+    .faq-item {
+      background: var(--white);
+      border: 1px solid #E5E7EB;
+      border-radius: 10px; overflow: hidden;
+    }
+    .faq-q {
+      padding: 20px 24px;
+      font-size: 16px; font-weight: 700; color: var(--dark);
+      cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center;
+      user-select: none; gap: 12px;
+    }
+    .faq-q .arr { font-size: 18px; transition: transform 0.25s; color: var(--orange); flex-shrink: 0; }
+    .faq-item.open .faq-q .arr { transform: rotate(180deg); }
+    .faq-a {
+      display: none; padding: 16px 24px 20px;
+      color: var(--text); font-size: 15px; line-height: 1.7;
+      border-top: 1px solid #F3F4F6;
+    }
+    .faq-item.open .faq-a { display: block; }
+
+    /* ── FINAL CTA ── */
+    .final-cta {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 60%, #0f172a 100%);
+      padding: 100px 20px;
+      text-align: center;
+    }
+    .final-cta h2 {
+      font-size: clamp(28px, 5vw, 46px);
+      font-weight: 900; color: var(--white);
+      line-height: 1.2; margin-bottom: 12px;
+    }
+    .final-cta h2 em { font-style: normal; color: var(--orange); }
+    .final-cta p {
+      color: #d8d0c4; font-size: 18px;
+      max-width: 520px; margin: 0 auto 40px; line-height: 1.7;
+    }
+    .final-cta .cta-btn { font-size: 20px; padding: 22px 50px; }
+    .final-note { margin-top: 20px; color: #cfc5b5; font-size: 14px; }
+    .final-note strong { color: var(--red); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0a0f1a;
+      padding: 30px 20px;
+      text-align: center;
+      color: #4B5563; font-size: 13px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .hero { padding: 100px 16px 60px; }
+      .hero-stats { gap: 24px; }
+      .for-who-grid { grid-template-columns: 1fr; }
+      .price-compare { flex-direction: column; gap: 12px; }
+      .package-item { flex-direction: column; align-items: flex-start; gap: 4px; }
+      .sticky-bar { padding: 8px 12px; gap: 8px; }
+      .sticky-bar span { font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STICKY BAR -->
+  <div class="sticky-bar">
+    <span class="badge">🔴 LANCEMENT</span>
+    <span>30 premières places au prix de lancement</span>
+    <a href="#rejoindre">Rejoindre la formation →</a>
+  </div>
+
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <h1 class="hero-brand">L'ATELIER DU <em>FUTUR</em></h1>
+      <p class="hero-tagline">La formation qui transforme les artisans du bâtiment en entrepreneurs de génie</p>
+
+      <!-- 3 character cards : remplace les divs placeholder par tes vraies images -->
+      <div class="hero-cards">
+
+        <div class="hero-card">
+          <!-- <img src="images/le-batisseur.jpg" alt="Le Bâtisseur" /> -->
+          <div class="hero-card-placeholder"></div>
+          <div class="hero-card-overlay">
+            <div class="hero-card-role">Enzo</div>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <!-- <img src="images/le-stratege.jpg" alt="Le Stratège" /> -->
+          <div class="hero-card-placeholder"></div>
+          <div class="hero-card-overlay">
+            <div class="hero-card-role">Antho</div>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <!-- <img src="images/le-closer.jpg" alt="Le Closer" /> -->
+          <div class="hero-card-placeholder"></div>
+          <div class="hero-card-overlay">
+            <div class="hero-card-role">Waxx</div>
+          </div>
+        </div>
+
+      </div>
+
+      <a href="#rejoindre" class="cta-btn">
+        Rejoindre la formation <span class="arr">→</span>
+      </a>
+
+      <p class="hero-price-note">1 500 € · Formation + Site + Google My Business + Logo</p>
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+  <section class="video-section">
+    <div class="container">
+      <h2 class="video-title">DÉCOUVRE <em>L'ATELIER</em></h2>
+      <p class="video-sub">3 minutes pour comprendre comment on va transformer ton business</p>
+      <div class="video-wrapper" id="video-wrapper">
+        <!-- Une fois ta vidéo prête, remplace le placeholder par :
+             <iframe src="https://www.youtube.com/embed/TON_ID" allowfullscreen></iframe>
+             ou pour Vimeo :
+             <iframe src="https://player.vimeo.com/video/TON_ID" allowfullscreen></iframe>
+        -->
+        <div class="video-placeholder">
+          <div class="video-play-btn">▶</div>
+          <p>Clique pour regarder la vidéo de présentation</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- PROBLEM -->
+  <section class="problem">
+    <div class="container">
+      <span class="section-tag">Le problème</span>
+      <h2 class="section-title">
+        Tu connais ton métier sur le bout des doigts.<br/>
+        Mais personne ne t'a appris à être <span style="color:var(--orange)">patron.</span>
+      </h2>
+      <p class="section-sub">Et c'est pas de ta faute. On t'a formé à faire le chantier : pas à gérer la boîte.</p>
+      <ul class="pain-list">
+        <li>Tu n'oses pas quitter ton employeur par peur de ne pas trouver de clients régulièrement</li>
+        <li>Tu fixes tes prix au feeling et tu travailles parfois pour un résultat qui ne vaut pas le temps passé</li>
+        <li>Tu n'as pas de site internet, pas de présence en ligne : tu perds des chantiers face à des concurrents moins compétents que toi</li>
+        <li>Tu passes des heures sur les devis, les factures, les relances au lieu de bosser sur le terrain</li>
+        <li>Tu ne sais pas comment utiliser ton chômage, l'ACRE, ou un prêt bancaire pour te lancer sans risque</li>
+        <li>Tu ne sais pas quelle structure choisir (auto-entrepreneur, SASU, EURL…) et tu as peur de te planter dès le départ</li>
+      </ul>
+      <div class="problem-close">
+        Le problème, c'est pas ton niveau <br/>
+        <span>c'est que personne ne t'a donné le système.</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- OFFER -->
+  <section class="offer">
+    <div class="container">
+      <span class="section-tag">L'offre</span>
+      <h2 class="section-title">
+        Ce programme n'est pas juste une formation.<br/>
+        <em style="font-style:normal;color:var(--orange)">C'est ton lancement.</em>
+      </h2>
+      <p class="section-sub" style="margin:0 auto 48px">
+        Contrairement aux autres formations qui te donnent de la théorie, tu repars avec tout en place : prêt à prendre des clients dès le lendemain.
+      </p>
+
+      <div class="package-box">
+        <div class="package-header">Ce que tu reçois</div>
+        <div class="package-item">
+          <div class="item-name"><span class="icon">🎓</span> Formation complète : 7 modules</div>
+          <div class="item-value">997 €</div>
+        </div>
+        <div class="package-item">
+          <div class="item-name"><span class="icon">💻</span> Site internet professionnel créé pour toi</div>
+          <div class="item-value">800 €</div>
+        </div>
+        <div class="package-item">
+          <div class="item-name"><span class="icon">📍</span> Google My Business configuré & optimisé</div>
+          <div class="item-value">300 €</div>
+        </div>
+        <div class="package-item">
+          <div class="item-name"><span class="icon">🎨</span> Logo professionnel</div>
+          <div class="item-value">200 €</div>
+        </div>
+        <div class="package-item">
+          <div class="item-name"><span class="icon">👥</span> Accès communauté Skool (entraide entre artisans)</div>
+          <div class="item-value">197 €</div>
+        </div>
+        <div class="package-total">
+          <div class="label">Valeur totale du programme</div>
+          <div class="value"><del>2 494 €</del> <span>1 500 €</span></div>
+        </div>
+      </div>
+
+      <div class="clef-en-main">
+        💡 <strong>Pourquoi seulement 30 places ?</strong><br/>
+        Parce que ton site internet, ton Google My Business et ton logo sont créés
+        <strong>manuellement pour toi</strong>. Ce n'est pas du contenu en masse 
+        c'est un accompagnement individuel. On ne peut pas le faire pour 200 personnes à la fois.
+      </div>
+    </div>
+  </section>
+
+
+  <!-- MODULES -->
+  <section class="modules">
+    <div class="container">
+      <span class="section-tag">Le programme</span>
+      <h2 class="section-title">7 modules pour passer de zéro à patron opérationnel</h2>
+      <p class="section-sub">Chaque module est conçu pour être appliqué immédiatement : pas pour être "regardé" et oublié.</p>
+
+      <div class="modules-grid">
+
+        <div class="module-card">
+          <div class="module-header">
+            <div class="module-num">1</div>
+            <div>
+              <div class="module-title">Mentalité & posture d'entrepreneur</div>
+              <div class="module-subtitle">La fondation de tout le reste</div>
+            </div>
+          </div>
+          <div class="module-body">
+            <p class="module-desc">Comprendre pourquoi certains artisans réussissent et d'autres stagnent : et adopter les bons réflexes dès le départ. Le mindset fait 80% du travail.</p>
+            <div class="module-items">
+              <span class="module-tag">Vidéo parcours & présentation</span>
+              <span class="module-tag">Mindset & compétences clés</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="module-card">
+          <div class="module-header">
+            <div class="module-num">2</div>
+            <div>
+              <div class="module-title">Comment sortir du salariat sans risque</div>
+              <div class="module-subtitle">Chômage · Sécurité financière · Timing</div>
+            </div>
+          </div>
+          <div class="module-body">
+            <p class="module-desc">Tout ce qu'on ne t'a jamais expliqué pour te lancer sans mettre ta famille en danger. Utilise les aides disponibles plutôt que de les ignorer.</p>
+            <div class="module-items">
+              <span class="module-tag">Prêt bancaire</span>
+              <span class="module-tag">Chômage</span>
+              <span class="module-tag">ACRE</span>
+              <span class="module-tag">Quelle structure choisir</span>
+              <span class="module-tag">Micro-entreprise selon l'activité</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="module-card">
+          <div class="module-header">
+            <div class="module-num">3</div>
+            <div>
+              <div class="module-title">Premiers investissements utiles</div>
+              <div class="module-subtitle">Outils · Assurances · Éviter les pièges</div>
+            </div>
+          </div>
+          <div class="module-body">
+            <p class="module-desc">Ce qui est vraiment utile versus ce qui ruine les débutants. Téléphone, tablette, assurances : dépense ton argent là où ça rapporte.</p>
+            <div class="module-items">
+              <span class="module-tag">Équipement mobile</span>
+              <span class="module-tag">Assurances pro</span>
+              <span class="module-tag">Éviter les arnaques fournisseurs</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="module-card">
+          <div class="module-header">
+            <div class="module-num">4</div>
+            <div>
+              <div class="module-title">Système de prix, devis et facturation</div>
+              <div class="module-subtitle">Arrête de brader ton travail</div>
+            </div>
+          </div>
+          <div class="module-body">
+            <p class="module-desc">Grille tarifaire, devis qui convertissent, factures qui protègent. Tu fixes tes prix avec méthode : plus jamais au feeling.</p>
+            <div class="module-items">
+              <span class="module-tag">Grille tarifaire</span>
+              <span class="module-tag">Création de devis</span>
+              <span class="module-tag">Création de facture</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="module-card">
+          <div class="module-header">
+            <div class="module-num">5</div>
+            <div>
+              <div class="module-title">Site internet & réseaux sociaux</div>
+              <div class="module-subtitle">Être visible localement sans perdre de temps</div>
+            </div>
+          </div>
+          <div class="module-body">
+            <p class="module-desc">Ton site, ton Google My Business, tes réseaux : on le fait <strong>avec toi</strong>. Tu n'as pas à devenir expert en marketing, juste à suivre le système.</p>
+            <div class="module-items">
+              <span class="module-tag">Présentation de Wax #5.1</span>
+              <span class="module-tag">Google My Business / Ads #5.2</span>
+              <span class="module-tag">Site internet #5.3</span>
+              <span class="module-tag">Réseaux sociaux avant/après #5.4</span>
+              <span class="module-tag bonus">🎁 BONUS : Stratégie avis clients</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="module-card">
+          <div class="module-header">
+            <div class="module-num">6</div>
+            <div>
+              <div class="module-title">Publicité & démarchage</div>
+              <div class="module-subtitle">Trouver des clients régulièrement</div>
+            </div>
+          </div>
+          <div class="module-body">
+            <p class="module-desc">Un système de prospection que tu peux répéter chaque semaine. Cibler les bons prospects, démarcher les fournisseurs, adopter le bon vocabulaire.</p>
+            <div class="module-items">
+              <span class="module-tag">Création de supports</span>
+              <span class="module-tag">Cibler les prospects</span>
+              <span class="module-tag">Démarchage commercial</span>
+              <span class="module-tag">Démarcher les fournisseurs</span>
+              <span class="module-tag">Vocabulaire à adopter</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="module-card">
+          <div class="module-header">
+            <div class="module-num">7</div>
+            <div>
+              <div class="module-title">Gestion client & chantiers</div>
+              <div class="module-subtitle">Organisation · Conflits · Retards · Paiement</div>
+            </div>
+          </div>
+          <div class="module-body">
+            <p class="module-desc">Comment protéger tes marges et ta réputation. Organisation, retards, conflits, paiements fractionnés : tout ce qui fait un patron solide.</p>
+            <div class="module-items">
+              <span class="module-tag">Diviser les paiements</span>
+              <span class="module-tag">Organisation & protection</span>
+              <span class="module-tag">Suivi chantier</span>
+              <span class="module-tag">Suivi client</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SKOOL -->
+  <section class="skool-section">
+    <div class="container text-center">
+      <div class="skool-logo">
+        <div class="dot"></div>
+        <span>Hébergé sur Skool</span>
+      </div>
+      <span class="section-tag">La plateforme</span>
+      <h2 class="section-title">
+        Pas juste des vidéos.<br/>
+        <span style="color:var(--orange)">Une vraie communauté d'artisans.</span>
+      </h2>
+      <p class="section-sub" style="margin:0 auto 0">
+        La formation tourne sur Skool, la meilleure plateforme du moment pour apprendre ET être entouré.
+        Voilà ce que ça change concrètement.
+      </p>
+
+      <div class="skool-grid">
+
+        <div class="skool-card">
+          <span class="sk-icon">📱</span>
+          <h3>Accessible partout, tout le temps</h3>
+          <p>App mobile + desktop. Tu regardes une vidéo entre deux chantiers, tu poses une question depuis le van. Tout est là, en permanence.</p>
+        </div>
+
+        <div class="skool-card">
+          <span class="sk-icon">💬</span>
+          <h3>Communauté d'artisans actifs</h3>
+          <p>Tu n'es pas seul dans une salle de classe virtuelle vide. Tu rejoins un groupe d'artisans qui avancent comme toi, qui partagent leurs chantiers, leurs galères et leurs victoires.</p>
+        </div>
+
+        <div class="skool-card">
+          <span class="sk-icon">🙋</span>
+          <h3>Pose tes questions, obtiens des réponses</h3>
+          <p>Un devis qui coince, un client difficile, un doute sur ta structure juridique. Tu poses dans le fil, Enzo, Antho ou Waxx répond directement.</p>
+        </div>
+
+        <div class="skool-card">
+          <span class="sk-icon">🔴</span>
+          <h3>Lives & sessions collectives</h3>
+          <p>Des sessions en direct régulières pour aller plus loin, répondre aux questions en temps réel et travailler ensemble sur les cas concrets des membres.</p>
+        </div>
+
+        <div class="skool-card">
+          <span class="sk-icon">♾️</span>
+          <h3>Accès à vie, sans abonnement</h3>
+          <p>Tu paies une fois. Tu accèdes pour toujours. Pas d'abonnement mensuel, pas de contenu qui disparaît. Les mises à jour futures sont incluses.</p>
+        </div>
+
+        <div class="skool-card">
+          <span class="sk-icon">🏆</span>
+          <h3>Progression et motivation</h3>
+          <p>Skool intègre un système de niveaux et de points. Tu vois ta progression, tu te compares aux autres membres, tu restes motivé sur la durée.</p>
+        </div>
+
+      </div>
+
+      <div class="skool-banner">
+        <p>La formation + la communauté + les lives.<br/><span>Tout au même endroit. Un seul accès.</span></p>
+        <div class="sk-badge">Inclus dans les 1 500 €</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOR WHO -->
+  <section class="for-who">
+    <div class="container">
+      <span class="section-tag">C'est fait pour toi ?</span>
+      <h2 class="section-title">Soyons honnêtes.</h2>
+      <div class="for-who-grid">
+        <div class="for-box yes">
+          <div class="for-box-title">C'est pour toi si…</div>
+          <ul>
+            <li>Tu es salarié dans le bâtiment et tu veux te lancer à ton compte</li>
+            <li>Tu viens de créer ta boîte et tu galères à trouver des clients</li>
+            <li>Tu es bon dans ton métier mais tu ne sais pas gérer le côté business</li>
+            <li>Tu veux un vrai système, pas des conseils vagues sur YouTube</li>
+            <li>Tu es prêt à appliquer ce que tu apprends</li>
+          </ul>
+        </div>
+        <div class="for-box no">
+          <div class="for-box-title">Ce n'est pas pour toi si…</div>
+          <ul>
+            <li>Tu cherches juste du contenu gratuit sans t'engager</li>
+            <li>Tu n'es pas prêt à passer à l'action</li>
+            <li>Tu es déjà à l'aise avec le marketing et la gestion client</li>
+            <li>Tu veux des résultats sans rien faire de ton côté</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SCARCITY -->
+  <section class="scarcity">
+    <div class="container text-center">
+      <span class="section-tag">Offre limitée</span>
+      <h2 class="section-title">Pourquoi 30 places seulement ?</h2>
+      <p>
+        Ton site, ton Google My Business et ton logo sont créés manuellement.
+        Chaque membre est suivi individuellement. Ce n'est pas du contenu en série.
+        Une fois les 30 places remplies, <strong style="color:var(--orange)">le prix passe à 2 000 €.</strong>
+      </p>
+
+
+      <div class="price-compare">
+        <div class="price-box old">
+          <div class="tag">Après le lancement</div>
+          <div class="amount">2 000 €</div>
+          <div class="note">Prix standard</div>
+        </div>
+        <div class="arrow-icon">→</div>
+        <div class="price-box new">
+          <div class="tag">🔥 Prix lancement : 30 premières places</div>
+          <div class="amount">1 500 €</div>
+          <div class="note">Tu économises 500 € immédiatement</div>
+        </div>
+      </div>
+
+      <a href="#rejoindre-final" class="cta-btn" id="rejoindre">Rejoindre la formation <span class="arr">→</span></a>
+    </div>
+  </section>
+
+
+  <!-- ENGAGEMENT -->
+  <section class="guarantee">
+    <div class="container">
+      <div class="guarantee-box">
+        <div class="guarantee-icon">🤝</div>
+        <div class="guarantee-title">On est là. Vraiment.</div>
+        <p class="guarantee-text">
+          Dès ton inscription sur Skool, tu es dans la communauté. Pas dans une liste email
+          que personne ne lit. Dans un vrai groupe actif où Enzo, Antho et Waxx interviennent
+          régulièrement.
+          <br/><br/>
+          Tu bloques sur ton devis ? Tu poses dans le fil. Tu ne sais pas comment répondre
+          à un client qui négocie ? Tu poses dans le fil. Tu veux un avis sur ton site
+          avant de le lancer ? Tu poses dans le fil.
+          <br/><br/>
+          <strong>Tu ne paies pas pour regarder des vidéos dans ton coin. Tu rejoins une équipe.</strong>
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="container">
+      <span class="section-tag">Questions fréquentes</span>
+      <h2 class="section-title">Tu as des questions ? Normal.</h2>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <div class="faq-q">
+            Je suis encore salarié : est-ce que c'est trop tôt pour rejoindre ?
+            <span class="arr">▼</span>
+          </div>
+          <div class="faq-a">
+            Non, c'est même le meilleur moment. Le module 2 est entièrement dédié à la sortie du salariat : comment utiliser ton chômage, l'ACRE, un prêt bancaire. Tu prépares ton départ sereinement avant de sauter le pas.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            Je ne suis pas à l'aise avec le numérique : est-ce que je vais m'en sortir ?
+            <span class="arr">▼</span>
+          </div>
+          <div class="faq-a">
+            C'est fait pour ça. Ton site internet et ton Google My Business sont créés par notre équipe, pas par toi. Tu n'as pas besoin de savoir coder ou de maîtriser le marketing digital. Tu suis le système, on gère le technique.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            Ça couvre quel type de corps de métier ?
+            <span class="arr">▼</span>
+          </div>
+          <div class="faq-a">
+            La méthode fonctionne pour tous les métiers du bâtiment : maçonnerie, peinture, plomberie, électricité, carrelage, menuiserie, nettoyage, jardinage… Si tu travailles chez des particuliers ou des professionnels, les modules s'adaptent à ta situation.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            Pourquoi le prix augmente après les 30 premières places ?
+            <span class="arr">▼</span>
+          </div>
+          <div class="faq-a">
+            Parce que le site internet, le Google My Business et le logo sont créés manuellement pour chaque membre. Ce travail a un coût. Les 30 premières places bénéficient du prix de lancement. Ensuite, le prix passe à 2 000 €.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            Est-ce que je peux payer en plusieurs fois ?
+            <span class="arr">▼</span>
+          </div>
+          <div class="faq-a">
+            Contacte-nous directement pour en parler. On est là pour que l'argent ne soit pas un obstacle si tu es vraiment motivé.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FINAL CTA -->
+  <section class="final-cta" id="rejoindre-final">
+    <div class="container">
+      <h2>
+        Prêt à passer au niveau supérieur ?<br/>
+        <em>Le chantier commence maintenant.</em>
+      </h2>
+      <p>
+        Site créé. Google My Business actif. Logo pro. Système client en place.
+        Il ne manque plus que toi.
+      </p>
+      <a href="#" class="cta-btn">Rejoindre la formation <span class="arr">→</span></a>
+      <p class="final-note" style="margin-top:16px">
+        Communauté Skool incluse. Accompagnement à chaque étape.
+      </p>
+    </div>
+  </section>
+
+
+  <footer>
+    <div class="container">
+      <p>Formation réservée aux professionnels du bâtiment. Prix HT.</p>
+    </div>
+  </footer>
+
+
+  <script>
+    document.querySelectorAll('.faq-q').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.parentElement;
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+  </script>
+
+</body>
+</html>

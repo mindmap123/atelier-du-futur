@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-cream: #fffcf2;
+    --color-warm-gray: #ccc5b9;
+    --color-dark-brown: #403d39;
+    --color-charcoal: #252422;
+    --color-orange: #eb5e28;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-[#252422] text-[#fffcf2];
+    font-family: 'Inter', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-[#eb5e28] text-[#fffcf2] px-8 py-4 font-bold uppercase tracking-wider text-sm transition-all duration-300 hover:bg-[#d45423] hover:scale-105 inline-block text-center;
+  }
+  
+  .section-dark {
+    @apply bg-[#252422] text-[#fffcf2];
+  }
+  
+  .section-light {
+    @apply bg-[#fffcf2] text-[#252422];
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #252422;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #403d39;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #eb5e28;
+}
