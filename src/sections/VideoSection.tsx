@@ -2,12 +2,12 @@ import { Play } from 'lucide-react';
 
 export default function VideoSection() {
   return (
-    <section className="py-20 bg-[#252422] px-4">
+    <section className="py-20 bg-white px-4">
       <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-black text-[#fffcf2] uppercase mb-4">
+        <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-black text-[#252422] uppercase mb-4">
           Découvre <span className="text-[#eb5e28]">l'Atelier</span>
         </h2>
-        <p className="text-[#ccc5b9] mb-8 max-w-xl mx-auto">
+        <p className="text-[#6b7280] mb-8 max-w-xl mx-auto">
           3 minutes pour comprendre comment on va transformer ton business
         </p>
 

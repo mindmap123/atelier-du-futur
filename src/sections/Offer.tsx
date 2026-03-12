@@ -2,9 +2,9 @@ import { GraduationCap, Globe, MapPin, Palette, Users } from 'lucide-react';
 
 const packageItems = [
   { icon: GraduationCap, name: 'Formation complète : 7 modules', value: '997 €' },
-  { icon: Globe, name: 'Site internet professionnel créé pour toi', value: '800 €' },
-  { icon: MapPin, name: 'Google My Business configuré & optimisé', value: '300 €' },
-  { icon: Palette, name: 'Logo professionnel', value: '200 €' },
+  { icon: Globe, name: 'Site internet professionnel créé pour toi', value: '1500 €' },
+  { icon: MapPin, name: 'Google My Business configuré & optimisé', value: '500 €' },
+  { icon: Palette, name: 'Logo professionnel', value: '350 €' },
   { icon: Users, name: 'Accès communauté Skool (entraide entre artisans)', value: '197 €' },
 ];
 
@@ -16,7 +16,7 @@ export default function Offer() {
         
         <h2 className="text-[clamp(1.75rem,4vw,2.5rem)] font-black text-[#252422] leading-tight mb-4">
           Ce programme n'est pas juste une formation.<br/>
-          <span className="text-[#eb5e28]">C'est ton lancement.</span>
+          <span className="text-[#eb5e28]">C'est ton pack de lancement.</span>
         </h2>
         
         <p className="text-[#6b7280] text-lg mb-12 max-w-2xl mx-auto">
@@ -45,7 +45,7 @@ export default function Offer() {
           <div className="bg-[#eb5e28]/5 border-t-2 border-[#eb5e28] p-6 flex items-center justify-between flex-wrap gap-4">
             <span className="text-[#6b7280] text-sm">Valeur totale du programme</span>
             <div className="text-right">
-              <span className="text-[#6b7280] text-lg line-through mr-3">2 494 €</span>
+              <span className="text-[#6b7280] text-lg line-through mr-3">3 544 €</span>
               <span className="text-[#eb5e28] text-3xl font-black">1 500 €</span>
             </div>
           </div>

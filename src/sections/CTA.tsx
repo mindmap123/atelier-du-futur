@@ -52,7 +52,7 @@ export default function CTA() {
 
         {/* Included */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-lg mx-auto mb-10">
-          <div className="text-left">
+          <div className="text-left bg-white/5 border border-white/20 p-4 rounded-lg">
             <p className="text-[#fffcf2] font-bold text-sm uppercase mb-3">La formation :</p>
             {included.map((item, i) => (
               <div key={i} className="flex items-center gap-2 mb-2">
