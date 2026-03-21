@@ -54,8 +54,6 @@ export default function Offer() {
         {/* CTA */}
         <a
           href="https://www.skool.com/latelier-4560"
-          target="_blank"
-          rel="noopener noreferrer"
           className="btn-primary flex items-center gap-2 mx-auto w-fit text-xl px-14 py-6 shadow-2xl shadow-[#eb5e28]/40 mt-10"
         >
           Rejoindre la formation

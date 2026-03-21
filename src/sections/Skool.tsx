@@ -77,8 +77,6 @@ export default function Skool() {
           </p>
           <a
             href="https://www.skool.com/latelier-4560"
-            target="_blank"
-            rel="noopener noreferrer"
             className="bg-[#eb5e28] hover:bg-[#d44e1f] text-white text-sm font-extrabold px-6 py-3 rounded-lg uppercase tracking-wide whitespace-nowrap transition-colors duration-200 flex items-center gap-2"
           >
             Inclus dans les 1 500 €

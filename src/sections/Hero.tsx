@@ -44,8 +44,6 @@ export default function Hero() {
         {/* CTA */}
         <a 
           href="https://www.skool.com/latelier-4560" 
-          target="_blank" 
-          rel="noopener noreferrer"
           className="btn-primary flex items-center gap-2 mx-auto w-fit mt-20"
         >
           Rejoindre la formation
