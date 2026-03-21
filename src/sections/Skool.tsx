@@ -1,4 +1,4 @@
-import { Smartphone, MessageCircle, HelpCircle, Radio, Infinity, Trophy } from 'lucide-react';
+import { Smartphone, MessageCircle, HelpCircle, Radio, Infinity, Trophy, ArrowRight } from 'lucide-react';
 
 const features = [
   {
@@ -75,9 +75,15 @@ export default function Skool() {
             La formation + la communauté + les lives.<br/>
             <span className="text-[#eb5e28]">Tout au même endroit. Un seul accès.</span>
           </p>
-          <div className="bg-[#eb5e28] text-white text-sm font-extrabold px-6 py-3 rounded-lg uppercase tracking-wide whitespace-nowrap">
+          <a
+            href="https://www.skool.com/latelier-4560"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-[#eb5e28] hover:bg-[#d44e1f] text-white text-sm font-extrabold px-6 py-3 rounded-lg uppercase tracking-wide whitespace-nowrap transition-colors duration-200 flex items-center gap-2"
+          >
             Inclus dans les 1 500 €
-          </div>
+            <ArrowRight className="w-4 h-4" />
+          </a>
         </div>
       </div>
     </section>

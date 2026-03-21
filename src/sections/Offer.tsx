@@ -1,4 +1,4 @@
-import { GraduationCap, Globe, MapPin, Palette, Users } from 'lucide-react';
+import { GraduationCap, Globe, MapPin, Palette, Users, ArrowRight } from 'lucide-react';
 
 const packageItems = [
   { icon: GraduationCap, name: 'Formation complète : 7 modules', value: '997 €' },
@@ -50,6 +50,17 @@ export default function Offer() {
             </div>
           </div>
         </div>
+
+        {/* CTA */}
+        <a
+          href="https://www.skool.com/latelier-4560"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-primary flex items-center gap-2 mx-auto w-fit text-xl px-14 py-6 shadow-2xl shadow-[#eb5e28]/40 mt-10"
+        >
+          Rejoindre la formation
+          <ArrowRight className="w-6 h-6" />
+        </a>
 
         {/* Clé en main */}
         <div className="bg-[#10b981]/5 border border-[#10b981] rounded-xl p-6 mt-10 text-left max-w-2xl mx-auto">

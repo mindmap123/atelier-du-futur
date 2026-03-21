@@ -1,9 +1,9 @@
 import { ArrowRight } from 'lucide-react';
 
 const formateurs = [
-  { img: '/formateur1.jpg', name: 'Enzo' },
-  { img: '/formateur2.jpg', name: 'Antho' },
-  { img: '/formateur3.jpg', name: 'Waxx' },
+  { img: '/Enzo.jpg', name: 'Enzo' },
+  { img: '/Antho.jpg', name: 'Antho' },
+  { img: '/Waxx.jpg', name: 'Waxx' },
 ];
 
 export default function Hero() {
@@ -16,7 +16,7 @@ export default function Hero() {
       <div className="relative z-10 text-center max-w-6xl mx-auto">
         {/* Title */}
         <h1 className="text-[clamp(2.5rem,8vw,6rem)] font-black text-[#fffcf2] uppercase tracking-tight leading-none mb-4">
-          L'ATELIER DU <span className="text-[#eb5e28]">FUTUR</span>
+          <span className="text-[#eb5e28]">L'ATELIER</span>
         </h1>
         
         <p className="text-[#ccc5b9] text-lg md:text-xl mb-12 max-w-2xl mx-auto">
@@ -43,7 +43,7 @@ export default function Hero() {
 
         {/* CTA */}
         <a 
-          href="https://www.skool.com/your-community" 
+          href="https://www.skool.com/latelier-4560" 
           target="_blank" 
           rel="noopener noreferrer"
           className="btn-primary flex items-center gap-2 mx-auto w-fit mt-20"
