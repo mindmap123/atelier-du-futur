@@ -58,7 +58,7 @@ export default function Campus() {
                   alt={`Campus ${campus.city}`}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className={`absolute inset-0 bg-gradient-to-t ${campus.gradient} opacity-70`} />
+                <div className={`absolute inset-0 bg-gradient-to-t ${campus.gradient} opacity-70 pointer-events-none`} />
                 <div className="absolute top-4 left-4">
                   <span className="bg-white/20 backdrop-blur text-white text-xs font-bold px-3 py-1.5 rounded-full border border-white/30">
                     ● Ouvert aux candidatures

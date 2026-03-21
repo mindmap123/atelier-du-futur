@@ -10,7 +10,7 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen bg-[#252422] flex flex-col items-center justify-center px-4 py-20 overflow-hidden">
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#eb5e28]/10 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#eb5e28]/10 via-transparent to-transparent pointer-events-none" />
       
       {/* Content */}
       <div className="relative z-10 text-center max-w-6xl mx-auto">
