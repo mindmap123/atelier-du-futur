@@ -77,7 +77,7 @@ export default function Hero() {
 
 
         {/* ── MOBILE : slider ── */}
-        <div className="md:hidden mb-8 overflow-visible">
+        <div className="md:hidden mb-8 overflow-visible overflow-x-hidden">
           <div
             ref={sliderRef}
             onScroll={handleScroll}
