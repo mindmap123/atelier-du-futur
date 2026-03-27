@@ -54,7 +54,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen bg-[#252422] flex flex-col items-center justify-center overflow-hidden px-4 pt-16 pb-12 md:pt-0 md:pb-0 md:h-[85vh]">
+    <section className="relative min-h-screen bg-[#252422] flex flex-col items-center justify-center overflow-x-hidden px-4 pt-16 pb-12 md:pt-0 md:pb-0 md:h-[85vh]">
       {/* Background gradients */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#eb5e28]/10 via-transparent to-transparent pointer-events-none" />
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#1a1816] to-transparent pointer-events-none" />
@@ -77,7 +77,7 @@ export default function Hero() {
 
 
         {/* ── MOBILE : slider ── */}
-        <div className="md:hidden mb-8 overflow-hidden">
+        <div className="md:hidden mb-8 overflow-visible">
           <div
             ref={sliderRef}
             onScroll={handleScroll}
@@ -108,6 +108,17 @@ export default function Hero() {
             ))}
           </div>
 
+          {/* Prénom sous la photo active */}
+          <p 
+            className="text-center mt-3 text-xl font-black"
+            style={{
+              color: '#eb5e28',
+              textShadow: '0 0 8px #eb5e28, 0 0 20px #eb5e28aa, 0 0 40px #eb5e2855',
+            }}
+          >
+            {formateurs[activeIndex].name}
+          </p>
+
           {/* Dots */}
           <div className="flex justify-center gap-3 mt-6">
             {formateurs.map((_, index) => (
@@ -133,6 +144,15 @@ export default function Hero() {
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
+              <p 
+                className="text-center mt-3 text-sm font-bold transition-colors duration-300"
+                style={{
+                  color: '#eb5e28',
+                  textShadow: '0 0 8px #eb5e28, 0 0 20px #eb5e28aa, 0 0 40px #eb5e2855',
+                }}
+              >
+                {formateur.name}
+              </p>
             </div>
           ))}
         </div>
