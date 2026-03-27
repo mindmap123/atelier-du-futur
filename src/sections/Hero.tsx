@@ -166,11 +166,6 @@ export default function Hero() {
           <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
         </a>
 
-        {/* Preuve */}
-        <p className="text-[#6b7280] text-xs mt-4 tracking-wide">
-          30 places disponibles
-        </p>
-
       </div>
     </section>
   );
