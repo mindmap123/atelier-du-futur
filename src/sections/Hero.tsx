@@ -59,7 +59,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-[#eb5e28]/10 via-transparent to-transparent pointer-events-none" />
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#1a1816] to-transparent pointer-events-none" />
 
-      <div className="relative z-10 text-center w-full max-w-5xl mx-auto">
+      <div className="relative z-10 text-center w-full max-w-5xl mx-auto overflow-x-hidden">
 
         {/* Logo */}
         <img
