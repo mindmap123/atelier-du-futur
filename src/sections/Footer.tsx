@@ -130,11 +130,10 @@ export default function Footer() {
           {/* Logo & mission */}
           <div className="md:col-span-1">
             <div className="mb-4">
-              <div className="font-black text-3xl text-[#1D4ED8] tracking-tight">EMMA</div>
-              <div className="text-xs text-white/40 leading-tight mt-1">École des Metiers et<br />Management en Alternance</div>
+              <img src="/logo/logo-latelier.png" alt="L'Atelier" className="h-10 w-auto" />
             </div>
             <p className="text-white/50 text-sm leading-relaxed mb-4">
-              Éveiller les talents du futur et les connecter aux opportunités du présent.
+              La formation qui transforme les artisans du bâtiment en entrepreneurs de génie.
             </p>
             <div className="flex gap-3">
               {[Linkedin, Facebook, Instagram].map((Icon, i) => (

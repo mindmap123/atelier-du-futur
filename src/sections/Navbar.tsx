@@ -22,11 +22,8 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-20">
 
           {/* Logo */}
-          <a href="#" className="flex items-center gap-3 flex-shrink-0">
-            <div className="flex flex-col">
-              <span className="font-black text-2xl text-[#1D4ED8] tracking-tight leading-none">EMMA</span>
-              <span className="text-[10px] text-[#64748B] font-medium tracking-wide leading-tight">École des Metiers et Management<br />en Alternance</span>
-            </div>
+          <a href="#" className="flex items-center flex-shrink-0">
+            <img src="/logo/logo-latelier.png" alt="L'Atelier" className="h-10 w-auto" />
           </a>
 
           {/* Desktop Nav */}
