@@ -73,9 +73,8 @@ export default function CTA() {
         </div>
 
         {/* CTA Button */}
-        <button 
-          data-cal-link="l-atelier"
-          data-cal-config='{"layout":"month_view"}'
+        <button
+          onClick={() => (window as any).Cal?.('modal', { calLink: 'l-atelier', config: { layout: 'month_view' } })}
           className="btn-primary flex items-center gap-2 mx-auto w-fit text-xl px-14 py-6 shadow-2xl shadow-[#eb5e28]/40"
         >
           Réserver un appel gratuit
