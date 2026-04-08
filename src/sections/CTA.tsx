@@ -74,7 +74,7 @@ export default function CTA() {
 
         {/* CTA Button */}
         <button
-          onClick={() => (window as any).Cal?.ns?.['l-atelier']?.('modal', { calLink: 'l-atelier', config: { layout: 'month_view' } })}
+          onClick={() => { const c = (window as any).Cal; if (c?.ns?.['l-atelier']) { c.ns['l-atelier']('modal', { calLink: 'l-atelier', config: { layout: 'month_view' } }); } else { window.open('https://cal.com/l-atelier', '_blank'); } }}
           className="btn-primary flex items-center gap-2 mx-auto w-fit text-xl px-14 py-6 shadow-2xl shadow-[#eb5e28]/40"
         >
           Réserver un appel gratuit
