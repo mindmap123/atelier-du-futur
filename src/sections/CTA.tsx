@@ -37,16 +37,16 @@ export default function CTA() {
         <div className="flex items-center justify-center gap-6 mb-10 flex-wrap">
           <div className="bg-white/5 border border-white/10 rounded-xl p-6 text-center">
             <p className="text-[#6b7280] text-xs uppercase tracking-wider mb-2">Après le lancement</p>
-            <p className="text-[#6b7280] text-4xl font-black line-through">2 000 €</p>
+            <p className="text-[#6b7280] text-4xl font-black line-through">3 500 €</p>
             <p className="text-[#6b7280] text-sm mt-2">Prix standard</p>
           </div>
-          
+
           <div className="text-[#eb5e28] text-3xl">→</div>
-          
+
           <div className="bg-[#eb5e28]/10 border-2 border-[#eb5e28] rounded-xl p-6 text-center">
             <p className="text-[#eb5e28] text-xs uppercase tracking-wider mb-2 font-bold">🔥 Prix lancement</p>
-            <p className="text-[#fffcf2] text-5xl font-black">1 500 €</p>
-            <p className="text-[#cbd5e1] text-sm mt-2">Tu économises 500 €</p>
+            <p className="text-[#fffcf2] text-5xl font-black">2 000 €</p>
+            <p className="text-[#cbd5e1] text-sm mt-2">Tu économises 1 500 €</p>
           </div>
         </div>
 
@@ -73,16 +73,17 @@ export default function CTA() {
         </div>
 
         {/* CTA Button */}
-        <a 
-          href="https://www.skool.com/latelier-4560" 
+        <button 
+          data-cal-link="l-atelier"
+          data-cal-config='{"layout":"month_view"}'
           className="btn-primary flex items-center gap-2 mx-auto w-fit text-xl px-14 py-6 shadow-2xl shadow-[#eb5e28]/40"
         >
-          Rejoindre sur Skool
+          Réserver un appel gratuit
           <ArrowRight className="w-6 h-6" />
-        </a>
+        </button>
 
         <p className="text-[#cfc5b5] text-sm mt-6">
-          Communauté Skool incluse. Accompagnement à chaque étape.
+          Échange de 30 min pour voir si la formation te correspond.
         </p>
       </div>
     </section>

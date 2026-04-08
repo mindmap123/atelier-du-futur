@@ -54,7 +54,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen bg-[#252422] flex flex-col items-center justify-center overflow-x-hidden px-4 pt-16 pb-12 md:pt-0 md:pb-0 md:h-[85vh]">
+    <section className="relative min-h-screen bg-[#252422] flex flex-col items-center justify-center overflow-x-hidden px-4 pt-16 pb-16">
       {/* Background gradients */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#eb5e28]/10 via-transparent to-transparent pointer-events-none" />
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#1a1816] to-transparent pointer-events-none" />
@@ -109,7 +109,7 @@ export default function Hero() {
           </div>
 
           {/* Prénom sous la photo active */}
-          <p 
+          <p
             className="text-center mt-3 text-xl font-black"
             style={{
               color: '#eb5e28',
@@ -144,7 +144,7 @@ export default function Hero() {
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
-              <p 
+              <p
                 className="text-center mt-3 text-sm font-bold transition-colors duration-300"
                 style={{
                   color: '#eb5e28',
@@ -158,13 +158,23 @@ export default function Hero() {
         </div>
 
         {/* CTA */}
-        <a
-          href="https://www.skool.com/latelier-4560"
-          className="btn-primary inline-flex items-center gap-2 mx-auto text-sm md:text-base px-8 py-4 font-bold tracking-wide uppercase relative z-50"
-        >
-          Voir la formation
-          <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
-        </a>
+        <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
+          <a
+            href="https://www.skool.com/latelier-4560"
+            className="btn-primary inline-flex items-center gap-2 text-sm md:text-base px-8 py-4 font-bold tracking-wide uppercase relative z-50"
+          >
+            Voir la formation
+            <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
+          </a>
+          <button
+            data-cal-link="l-atelier"
+            data-cal-config='{"layout":"month_view"}'
+            className="inline-flex items-center gap-2 text-sm md:text-base px-8 py-4 font-bold tracking-wide uppercase relative z-50 bg-transparent border-2 border-[#eb5e28] text-[#eb5e28] rounded-lg hover:bg-[#eb5e28] hover:text-[#fffcf2] transition-all duration-300"
+          >
+            Prendre RDV
+            <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
+          </button>
+        </div>
 
       </div>
     </section>

@@ -15,14 +15,20 @@
   
   html {
     scroll-behavior: smooth;
-    overflow-x: hidden;
+    overflow-x: clip;
     max-width: 100vw;
   }
-  
+
   body {
     @apply bg-[#252422] text-[#fffcf2];
     font-family: 'Manrope', sans-serif;
-    overflow-x: hidden;
+    overflow-x: clip;
+    max-width: 100vw;
+    position: relative;
+  }
+
+  #root {
+    overflow-x: clip;
     max-width: 100vw;
   }
   
@@ -46,20 +52,12 @@
   }
 }
 
-/* Custom scrollbar */
+/* Hide scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  display: none;
 }
 
-::-webkit-scrollbar-track {
-  background: #252422;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #403d39;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #eb5e28;
+html, body {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
