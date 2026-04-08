@@ -167,7 +167,7 @@ export default function Hero() {
             <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
           </a>
           <button
-            onClick={() => (window as any).Cal?.('modal', { calLink: 'l-atelier', config: { layout: 'month_view' } })}
+            onClick={() => (window as any).Cal?.ns?.['l-atelier']?.('modal', { calLink: 'l-atelier', config: { layout: 'month_view' } })}
             className="inline-flex items-center gap-2 text-sm md:text-base px-8 py-4 font-bold tracking-wide uppercase relative z-50 bg-transparent border-2 border-[#eb5e28] text-[#eb5e28] rounded-lg hover:bg-[#eb5e28] hover:text-[#fffcf2] transition-all duration-300"
           >
             Prendre RDV
