@@ -159,20 +159,20 @@ export default function Hero() {
 
         {/* CTA */}
         <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-          <a
-            href="https://www.skool.com/latelier-4560"
-            className="btn-primary inline-flex items-center gap-2 text-sm md:text-base px-8 py-4 font-bold tracking-wide uppercase relative z-50"
-          >
-            Voir la formation
-            <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
-          </a>
           <button
             onClick={() => { const c = (window as any).Cal; if (c?.ns?.['l-atelier']) { c.ns['l-atelier']('modal', { calLink: 'l-atelier', config: { layout: 'month_view' } }); } else { window.open('https://cal.com/l-atelier', '_blank'); } }}
-            className="inline-flex items-center gap-2 text-sm md:text-base px-8 py-4 font-bold tracking-wide uppercase relative z-50 bg-transparent border-2 border-[#eb5e28] text-[#eb5e28] rounded-lg hover:bg-[#eb5e28] hover:text-[#fffcf2] transition-all duration-300"
+            className="btn-primary inline-flex items-center gap-2 text-sm md:text-base px-8 py-4 font-bold tracking-wide uppercase relative z-50"
           >
             Prendre RDV
             <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
           </button>
+          <a
+            href="https://www.skool.com/latelier-4560"
+            className="inline-flex items-center gap-2 text-sm md:text-base px-8 py-4 font-bold tracking-wide uppercase relative z-50 bg-transparent border-2 border-[#eb5e28] text-[#eb5e28] rounded-lg hover:bg-[#eb5e28] hover:text-[#fffcf2] transition-all duration-300"
+          >
+            Voir la formation
+            <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
+          </a>
         </div>
 
       </div>

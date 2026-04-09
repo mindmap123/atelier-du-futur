@@ -79,7 +79,7 @@ export default function Skool() {
             href="https://www.skool.com/latelier-4560"
             className="bg-[#eb5e28] hover:bg-[#d44e1f] text-white text-sm font-extrabold px-6 py-3 rounded-lg uppercase tracking-wide whitespace-nowrap transition-colors duration-200 flex items-center gap-2"
           >
-            Inclus dans les 2 000 €
+            Rejoindre la formation
             <ArrowRight className="w-4 h-4" />
           </a>
         </div>
