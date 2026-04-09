@@ -8,7 +8,7 @@ export default function Guarantee() {
           <Handshake className="w-14 h-14 text-[#eb5e28] mx-auto mb-5" />
           
           <h2 className="text-[clamp(1.5rem,4vw,2rem)] font-black text-[#252422] mb-5">
-            On est là. Vraiment.
+            On est là.
           </h2>
           
           <div className="text-[#374151] text-base leading-relaxed space-y-4">

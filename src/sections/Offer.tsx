@@ -77,15 +77,6 @@ export default function Offer() {
           <ArrowRight className="w-6 h-6" />
         </button>
 
-        {/* Clé en main */}
-        <div className="bg-[#10b981]/5 border border-[#10b981] rounded-xl p-6 mt-10 text-left max-w-2xl mx-auto">
-          <p className="text-[#374151] text-base leading-relaxed">
-            💡 <strong className="text-[#10b981]">Pourquoi seulement 30 places ?</strong><br/>
-            Parce que ton site internet, ton Google My Business et ton logo sont créés{' '}
-            <strong className="text-[#10b981]">manuellement pour toi</strong>. Ce n'est pas du contenu en masse :
-            c'est un accompagnement individuel. On ne peut pas le faire pour 200 personnes à la fois.
-          </p>
-        </div>
       </div>
     </section>
   );

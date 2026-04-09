@@ -12,7 +12,7 @@ import CTA from './sections/CTA';
 
 function App() {
   useEffect(() => {
-    const lenis = new Lenis({ lerp: 0.08 });
+    const lenis = new Lenis({ lerp: 0.12 });
     let raf: number;
     const animate = (time: number) => {
       lenis.raf(time);
