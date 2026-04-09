@@ -2,7 +2,7 @@ import { GraduationCap, Globe, MapPin, Palette, Users, ArrowRight } from 'lucide
 
 const packageItems = [
   { icon: GraduationCap, name: 'Formation complète : 7 modules', value: '997 €' },
-  { icon: Globe, name: 'Site internet professionnel créé pour toi', value: '1500 €' },
+  { icon: Globe, name: 'Site internet professionnel créé pour toi', value: '2000€' },
   { icon: MapPin, name: 'Google My Business configuré & optimisé', value: '500 €' },
   { icon: Palette, name: 'Logo professionnel', value: '350 €' },
   { icon: Users, name: 'Accès communauté Skool (entraide entre artisans)', value: '197 €' },
@@ -46,7 +46,7 @@ export default function Offer() {
             <span className="text-[#6b7280] text-sm">Valeur totale du programme</span>
             <div className="text-right">
               <span className="text-[#6b7280] text-lg line-through mr-3">3 544 €</span>
-              <span className="text-[#eb5e28] text-3xl font-black">1 500 €</span>
+              <span className="text-[#eb5e28] text-3xl font-black">2 000€</span>
             </div>
           </div>
         </div>
