@@ -46,7 +46,7 @@ export default function CTA() {
           <div className="bg-[#eb5e28]/10 border-2 border-[#eb5e28] rounded-xl p-6 text-center">
             <p className="text-[#eb5e28] text-xs uppercase tracking-wider mb-2 font-bold">🔥 Prix lancement</p>
             <p className="text-[#fffcf2] text-5xl font-black">2 000 €</p>
-            <p className="text-[#cbd5e1] text-sm mt-2">Tu économises 1 500 €</p>
+            <p className="text-[#cbd5e1] text-sm mt-2">Tu économises 2 000 €</p>
           </div>
         </div>
 
